@@ -6,9 +6,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta
     name="description"
-    content="Personal website of Ulisses, a Portuguese-born technology consultant, engineering student, and modern physics enthusiast living in Brazil."
+    content="Personal website of Fabio, a Portuguese-born technology consultant, engineering student, and modern physics enthusiast living in Brazil."
   >
-  <title>Ulisses | Consultant & Technology Enthusiast</title>
+  <title>Fabio | Consultant & Technology Enthusiast</title>
 
   <style>
     :root {
@@ -160,6 +160,28 @@
       transform: translateY(-2px);
     }
 
+.profile-photo,
+.lifestyle-photo {
+  display: block;
+  width: 100%;
+  height: 100%;
+  min-height: 360px;
+  object-fit: cover;
+  border-radius: 1.4rem;
+  box-shadow: var(--shadow);
+}
+
+.lifestyle-photo {
+  min-height: 100%;
+}
+
+@media (max-width: 860px) {
+  .profile-photo,
+  .lifestyle-photo {
+    min-height: 340px;
+  }
+}
+
     .photo-placeholder {
       position: relative;
       display: grid;
@@ -175,7 +197,7 @@
       box-shadow: var(--shadow);
       text-align: center;
     }
-
+    
     .photo-placeholder::before {
       content: "";
       position: absolute;
@@ -401,7 +423,7 @@
 <body>
   <header>
     <nav class="container" aria-label="Main navigation">
-      <a class="logo" href="#home">Ulisses</a>
+      <a class="logo" href="#home">Fabio</a>
 
 ```
   <ul class="nav-links">
@@ -420,9 +442,10 @@
       <div class="container hero-grid">
         <div class="hero-content">
           <span class="eyebrow">Consultant · Student · Curious Mind</span>
-          <h1>Hello, I’m Ulisses.</h1>
+          <h1>Hello, I’m Fabio.</h1>
           <p>
-            I'm a technology consultant combining extensive experience in networks and multimedia with
+            I am a technology consultant and
+            I combine extensive experience in networks and multimedia with
             an enduring curiosity about engineering, science, and the ways
             complex systems connect.
           </p>
@@ -430,13 +453,11 @@
         </div>
 
 ```
-    <div
-      class="photo-placeholder"
-      role="img"
-      aria-label="Placeholder for a portrait photograph of Ulisses"
-    >
-      <span>Portrait photo placeholder</span>
-    </div>
+<img
+  class="lifestyle-photo"
+  src="./portrait.jpg"
+  alt="Me"
+>
   </div>
 </section>
 
@@ -472,7 +493,7 @@
       <aside class="facts">
         <h3>At a glance</h3>
         <ul>
-          <li><strong>Based in:</strong> World</li>
+          <li><strong>Based in:</strong> Brazil</li>
           <li><strong>Originally from:</strong> Portugal</li>
           <li><strong>Profession:</strong> Technology consultant</li>
           <li><strong>Education:</strong> Second undergraduate degree</li>
@@ -539,13 +560,11 @@
     </p>
 
     <div class="personal-layout">
-      <div
-        class="photo-placeholder"
-        role="img"
-        aria-label="Placeholder for a family or lifestyle photograph"
-      >
-        <span>Family or lifestyle photo placeholder</span>
-      </div>
+<img
+  class="lifestyle-photo"
+  src="./two_dogs.jpg"
+  alt="Fabio enjoying time with his family"
+>
 
       <div class="personal-grid">
         <article class="personal-item">
@@ -596,9 +615,8 @@
 
   <footer>
     <div class="container">
-      <p>&copy; 2026 Ulisses. Built with curiosity in Brazil.</p>
+      <p>&copy; 2026 Fabio. Built with curiosity in Brazil.</p>
     </div>
   </footer>
 </body>
 </html>
-
