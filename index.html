@@ -4,19 +4,26 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Personal website of Ulisses, a technology consultant, engineering student, and modern physics enthusiast.">
+  <meta
+    name="description"
+    content="Personal website of Ulisses, a Portuguese-born technology consultant, engineering student, and modern physics enthusiast living in Brazil."
+  >
   <title>Ulisses | Consultant & Technology Enthusiast</title>
 
   <style>
     :root {
-      --background: #f5f7fa;
-      --surface: #ffffff;
-      --text: #172033;
-      --muted: #5f6b7a;
-      --primary: #2357d9;
-      --primary-dark: #173b96;
-      --border: #dfe5ee;
-      --shadow: 0 18px 45px rgba(23, 32, 51, 0.09);
+      --background: #f3f1e8;
+      --surface: #fffdf5;
+      --surface-soft: #e6ead8;
+      --text: #263126;
+      --muted: #65705e;
+      --primary: #3f5b3a;
+      --primary-dark: #293e28;
+      --secondary: #8b6f47;
+      --accent: #b3a36d;
+      --border: #d4d8c4;
+      --hero-overlay: rgba(38, 49, 38, 0.06);
+      --shadow: 0 18px 45px rgba(41, 62, 40, 0.11);
     }
 
     * {
@@ -43,7 +50,7 @@
 
     img {
       display: block;
-      width: 100%;
+      max-width: 100%;
     }
 
     .container {
@@ -55,7 +62,7 @@
       position: sticky;
       top: 0;
       z-index: 10;
-      background: rgba(255, 255, 255, 0.92);
+      background: rgba(255, 253, 245, 0.92);
       border-bottom: 1px solid var(--border);
       backdrop-filter: blur(12px);
     }
@@ -83,6 +90,10 @@
       font-weight: 600;
     }
 
+    .nav-links a {
+      transition: color 0.2s ease;
+    }
+
     .nav-links a:hover {
       color: var(--primary);
     }
@@ -93,15 +104,16 @@
       place-items: center;
       padding: 6rem 0;
       background:
-        radial-gradient(circle at 15% 20%, rgba(35, 87, 217, 0.14), transparent 30%),
-        radial-gradient(circle at 85% 80%, rgba(41, 163, 126, 0.12), transparent 32%);
+        radial-gradient(circle at 10% 20%, rgba(63, 91, 58, 0.18), transparent 30%),
+        radial-gradient(circle at 90% 80%, rgba(139, 111, 71, 0.16), transparent 32%),
+        linear-gradient(var(--hero-overlay), var(--hero-overlay));
     }
 
     .hero-grid {
       display: grid;
       grid-template-columns: 1.25fr 0.75fr;
-      align-items: center;
       gap: 4rem;
+      align-items: center;
     }
 
     .hero-content {
@@ -148,36 +160,38 @@
       transform: translateY(-2px);
     }
 
-    .photo-frame {
-      overflow: hidden;
+    .photo-placeholder {
       position: relative;
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 1.3rem;
+      display: grid;
+      min-height: 360px;
+      place-items: center;
+      overflow: hidden;
+      color: var(--primary-dark);
+      background:
+        linear-gradient(135deg, rgba(63, 91, 58, 0.15), rgba(179, 163, 109, 0.22)),
+        var(--surface-soft);
+      border: 2px dashed var(--accent);
+      border-radius: 1.4rem;
       box-shadow: var(--shadow);
-    }
-
-    .hero-photo {
-      aspect-ratio: 4 / 5;
-    }
-
-    .photo-frame img {
-      height: 100%;
-      object-fit: cover;
-    }
-
-    .photo-caption {
-      position: absolute;
-      right: 1rem;
-      bottom: 1rem;
-      left: 1rem;
-      padding: 0.7rem 1rem;
-      color: white;
-      background: rgba(23, 32, 51, 0.75);
-      border-radius: 0.7rem;
-      font-size: 0.9rem;
       text-align: center;
-      backdrop-filter: blur(8px);
+    }
+
+    .photo-placeholder::before {
+      content: "";
+      position: absolute;
+      width: 220px;
+      height: 220px;
+      background: rgba(255, 253, 245, 0.35);
+      border-radius: 50%;
+      transform: translate(40%, -40%);
+    }
+
+    .photo-placeholder span {
+      position: relative;
+      z-index: 1;
+      padding: 1.5rem;
+      font-weight: 800;
+      letter-spacing: 0.04em;
     }
 
     section {
@@ -270,27 +284,45 @@
 
     .personal {
       color: white;
-      background: #172033;
+      background:
+        linear-gradient(rgba(41, 62, 40, 0.96), rgba(41, 62, 40, 0.96)),
+        repeating-linear-gradient(
+          45deg,
+          transparent,
+          transparent 18px,
+          rgba(255, 255, 255, 0.03) 18px,
+          rgba(255, 255, 255, 0.03) 36px
+        );
+    }
+
+    .personal .eyebrow {
+      color: #d9cf9d;
     }
 
     .personal .section-intro {
-      color: #c6cfdd;
+      color: #d6ddcf;
     }
 
     .personal-layout {
       display: grid;
-      grid-template-columns: 0.75fr 1.25fr;
-      gap: 3rem;
-      align-items: center;
+      grid-template-columns: 0.8fr 1.2fr;
+      gap: 2rem;
+      align-items: stretch;
     }
 
-    .personal-photo {
-      aspect-ratio: 4 / 5;
-      border-color: rgba(255, 255, 255, 0.15);
+    .personal .photo-placeholder {
+      min-height: 100%;
+      color: #f7f3df;
+      background:
+        linear-gradient(135deg, rgba(179, 163, 109, 0.26), rgba(255, 255, 255, 0.08)),
+        rgba(255, 255, 255, 0.06);
+      border-color: rgba(217, 207, 157, 0.65);
+      box-shadow: none;
     }
 
     .personal-grid {
       display: grid;
+      grid-template-columns: 1fr;
       gap: 1.3rem;
     }
 
@@ -306,7 +338,7 @@
     }
 
     .personal-item p {
-      color: #c6cfdd;
+      color: #d6ddcf;
     }
 
     .contact {
@@ -334,21 +366,23 @@
         grid-template-columns: 1fr;
       }
 
-      .hero-photo,
-      .personal-photo {
-        width: min(480px, 100%);
-        margin: 0 auto;
-        aspect-ratio: 4 / 3;
+      .hero .photo-placeholder {
+        min-height: 300px;
+        max-width: 520px;
       }
 
-      .cards {
-        grid-template-columns: 1fr;
+      .personal .photo-placeholder {
+        min-height: 340px;
       }
     }
 
     @media (max-width: 760px) {
       .nav-links {
         display: none;
+      }
+
+      .cards {
+        grid-template-columns: 1fr;
       }
 
       .hero {
@@ -369,6 +403,7 @@
     <nav class="container" aria-label="Main navigation">
       <a class="logo" href="#home">Ulisses</a>
 
+```
   <ul class="nav-links">
     <li><a href="#about">About me</a></li>
     <li><a href="#experience">Experience</a></li>
@@ -376,6 +411,7 @@
     <li><a href="#contact">Contact</a></li>
   </ul>
 </nav>
+```
 
   </header>
 
@@ -386,21 +422,21 @@
           <span class="eyebrow">Consultant · Student · Curious Mind</span>
           <h1>Hello, I’m Ulisses.</h1>
           <p>
-            I am a Portuguese-born technology consultant living in Jundiaí,
-            Brazil. I combine extensive experience in networks and multimedia
-            with an enduring curiosity about engineering, science, and how
+            I'm a technology consultant combining extensive experience in networks and multimedia with
+            an enduring curiosity about engineering, science, and the ways
             complex systems connect.
           </p>
           <a class="button" href="#about">Learn more about me</a>
         </div>
 
 ```
-    <figure class="photo-frame hero-photo">
-      <img
-        src="ulisses2_anime.jpg"
-        alt="Placeholder for a portrait of Ulisses"
-      >
-    </figure>
+    <div
+      class="photo-placeholder"
+      role="img"
+      aria-label="Placeholder for a portrait photograph of Ulisses"
+    >
+      <span>Portrait photo placeholder</span>
+    </div>
   </div>
 </section>
 
@@ -413,9 +449,8 @@
 
         <p>
           I was born in Portugal, but Brazil has been my home for many
-          years. I currently live in Jundiaí, a city that gives me a good
-          balance between professional opportunities, family life, and
-          contact with nature.
+          years. Living between the influence of two cultures has shaped
+          the way I communicate, learn, and approach new challenges.
         </p>
 
         <p>
@@ -437,7 +472,7 @@
       <aside class="facts">
         <h3>At a glance</h3>
         <ul>
-          <li><strong>Based in:</strong> Jundiaí, Brazil</li>
+          <li><strong>Based in:</strong> World</li>
           <li><strong>Originally from:</strong> Portugal</li>
           <li><strong>Profession:</strong> Technology consultant</li>
           <li><strong>Education:</strong> Second undergraduate degree</li>
@@ -499,43 +534,44 @@
     <h2>The things that keep me curious.</h2>
     <p class="section-intro">
       Technology is an important part of my life, but it is not the whole
-      story. Family, science, reading, music, and quiet walks with my dogs
-      help me keep a broader perspective.
+      story. Family, science, reading, music, and time with my dogs help me
+      maintain a broader perspective.
     </p>
 
     <div class="personal-layout">
-      <figure class="photo-frame personal-photo">
-        <img
-          src="two_dogs.jpg"
-          alt="Placeholder for a family, lifestyle, or Jundiaí photo"
-        >
-      </figure>
+      <div
+        class="photo-placeholder"
+        role="img"
+        aria-label="Placeholder for a family or lifestyle photograph"
+      >
+        <span>Family or lifestyle photo placeholder</span>
+      </div>
 
       <div class="personal-grid">
         <article class="personal-item">
           <h3>Modern physics</h3>
           <p>
             I love studying relativity, quantum mechanics, cosmology, and
-            the surprising questions that appear when we examine reality at
-            its largest and smallest scales.
+            the surprising questions that appear when we examine reality
+            at its largest and smallest scales.
           </p>
         </article>
 
         <article class="personal-item">
           <h3>Family</h3>
           <p>
-            I am the proud father of a wonderful child. Parenthood has taught
-            me patience, responsibility, creativity, and the importance of
-            enjoying everyday moments.
+            I am the proud father of a wonderful child. Parenthood has
+            taught me patience, responsibility, creativity, and the
+            importance of enjoying everyday moments.
           </p>
         </article>
 
         <article class="personal-item">
           <h3>Two loyal dogs</h3>
           <p>
-            My two dogs are part of the family and excellent companions for
-            walks around Jundiaí. They are also persistent reminders to step
-            away from the screen.
+            My two dogs are part of the family and excellent companions
+            for long walks. They are also persistent reminders to step
+            away from the screen and enjoy the world outside.
           </p>
         </article>
       </div>
@@ -554,12 +590,13 @@
     <a class="button" href="mailto:fabio@example.com">Send me an email</a>
   </div>
 </section>
+```
 
   </main>
 
   <footer>
     <div class="container">
-      <p>&copy; 2026 Ulisses. Built with curiosity in Jundiaí, Brazil.</p>
+      <p>&copy; 2026 Ulisses. Built with curiosity in Brazil.</p>
     </div>
   </footer>
 </body>
